@@ -3,35 +3,29 @@
     private static void Main(string[] args)
     {
 
-        int[] result = new int[5];
-        result = new int[] { 10, 5, 12, 1, 3};
+        int[] result = new int[9];
+        result = new int[] { 10, 5, 5, 1, 3, 7, 155, 1003, 1234};
 
         int[] empty = new int[5];
+        Console.WriteLine("ORIGINAL ARRAY");
         WriteArrayFirstToLast(result);
 
-        Console.WriteLine("LOWEST TO HIGHEST");
-        WriteArrayFirstToLast(LowestToHighest(result));//1
+        
+        WriteArrayFirstToLast(LowestToHighest((int[])result.Clone()));//1
 
-        Console.WriteLine("ORDER REVERSED");
-        WriteArrayFirstToLast(ReverseArrayOrder(result));//2
+        WriteArrayFirstToLast(ReverseArrayOrder((int[])result.Clone()));//2
 
-        Console.WriteLine("REMOVE FIRST ELEMENT");
-        WriteArrayFirstToLast(RemoveFirstElement(result));//3
+        WriteArrayFirstToLast(RemoveFirstElement((int[])result.Clone()));//3
 
-        Console.WriteLine("REMOVE LAST ELEMENT");
-        WriteArrayFirstToLast(RemoveLastElement(result));//4
+        WriteArrayFirstToLast(RemoveLastElement((int[])result.Clone()));//4
 
-        Console.WriteLine("REMOVE ELEMEND ON CHOSEN INDEX");
-        WriteArrayFirstToLast(RemoveElementOnIndex(result));//5
+        WriteArrayFirstToLast(RemoveElementOnIndex((int[])result.Clone()));//5
 
-        Console.WriteLine("ADD ELEMENT ON START");
-        WriteArrayFirstToLast(AddElementOnStart(result));//6
+        WriteArrayFirstToLast(AddElementOnStart((int[])result.Clone()));//6
 
-        Console.WriteLine("ADD ELEMENT ON END");
-        WriteArrayFirstToLast(AddElementOnEnd(result));//7
+        WriteArrayFirstToLast(AddElementOnEnd((int[])result.Clone()));//7
 
-        Console.WriteLine("ADD ELEMENT ON INDEX");
-        WriteArrayFirstToLast(AddElementOnIndex(result));//8
+        WriteArrayFirstToLast(AddElementOnIndex((int[])result.Clone()));//8
 
 
 
@@ -42,6 +36,7 @@
     //ÚLOHA 1
     public static int[] LowestToHighest(int[] array)  
     {
+        Console.WriteLine("LOWEST TO HIGHEST");
         int[] result = new int[array.Length];
         result = array;
         int count = 0;
@@ -71,6 +66,8 @@
     //ÚLOHA 2
     public static int[] ReverseArrayOrder(int[] array) 
     {
+        Console.WriteLine("ORDER REVERSED");
+
         int[] result = new int[array.Length];
 
         for (int i = 0; i < array.Length; i++)
@@ -83,6 +80,7 @@
     public static int[] RemoveFirstElement(int[] array)
 
     {
+        Console.WriteLine("REMOVE FIRST ELEMENT");
         int[] result = new int[array.Length - 1];
 
         for (int i = 0; i < result.Length; i++)
@@ -95,6 +93,7 @@
     public static int[] RemoveLastElement(int[] array)
 
     {
+        Console.WriteLine("REMOVE LAST ELEMENT");
         int[] result = new int[array.Length - 1];
 
         for (int i = 0; i < result.Length; i++)
@@ -106,6 +105,7 @@
     //ÚLOHA 5
     public static int[] RemoveElementOnIndex(int[] array)
     {
+        Console.WriteLine("REMOVE ELEMEND ON CHOSEN INDEX");
         int[] result = new int[array.Length - 1];
         Console.WriteLine("Choose an index of the element you want to remove");
         string ReadIndex = Console.ReadLine();
@@ -125,6 +125,7 @@
     }
     public static int[] RemoveElementOnIndex(int[] array, int chosenIndex)
     {
+        Console.WriteLine("REMOVE ELEMEND ON CHOSEN INDEX");
         int[] result = new int[array.Length - 1];
         int indexSkip = 0;
 
@@ -148,6 +149,7 @@
     //ÚLOHA 6
     public static int[] AddElementOnStart(int[] array)
     {
+        Console.WriteLine("ADD ELEMENT ON START");
         Console.WriteLine("Choose an element you want to add");
         string ReadElement = Console.ReadLine();
         Int32.TryParse(ReadElement, out int chosenElement);
@@ -162,6 +164,7 @@
     }
     public static int[] AddElementOnStart(int[] array, int chosenElement)
     {
+        Console.WriteLine("ADD ELEMENT ON START");
         int[] result = new int[array.Length + 1];
         result[0] = chosenElement;
         for (int i = 0; i < array.Length; i++)
@@ -174,6 +177,7 @@
     //ÚLOHA 7
     public static int[] AddElementOnEnd(int[] array)
     {
+        Console.WriteLine("ADD ELEMENT ON END");
         Console.WriteLine("Choose an element you want to add");
         string ReadElement = Console.ReadLine();
         Int32.TryParse(ReadElement, out int chosenElement);
@@ -188,6 +192,7 @@
     }
     public static int[] AddElementOnEnd(int[] array, int chosenElement)
     {
+        Console.WriteLine("ADD ELEMENT ON END");
         int[] result = new int[array.Length + 1];
         result[result.Length - 1] = chosenElement;
         for (int i = 0; i < array.Length; i++)
@@ -200,6 +205,7 @@
     //ÚLOHA 8
     public static int[] AddElementOnIndex(int[] array)
     {
+        Console.WriteLine("ADD ELEMENT ON INDEX");
         Console.WriteLine("Choose on what index you want to add an element");
         string ReadIndex = Console.ReadLine();
         Int32.TryParse(ReadIndex, out int chosenIndex);
@@ -231,6 +237,7 @@
     public static int[] AddElementOnIndex(int[] array, int chosenIndex)
     {
 
+        Console.WriteLine("ADD ELEMENT ON INDEX");
         if (chosenIndex > array.Length || chosenIndex < 0)
         {
             Console.WriteLine("Index out of Bounds");
@@ -259,6 +266,7 @@
     public static int[] AddElementOnIndex(int[] array, int chosenIndex, int chosenElement)
     {
 
+        Console.WriteLine("ADD ELEMENT ON INDEX");
         if (chosenIndex > array.Length || chosenIndex < 0)
         {
             Console.WriteLine("Index out of Bounds");
